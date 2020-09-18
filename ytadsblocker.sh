@@ -92,6 +92,7 @@ function Database () {
 			if [[ $DOMAIN == *.googlevideo.com ]]; then 
 				echo -e "${TAGINFO} Inserting subdomain: $DOMAIN";
 				sqlite3 "${GRAVITYDB}"  """INSERT INTO domainlist (type, domain, comment) VALUES (1, '${DOMAIN}', 'Blacklisted by ytadsblocker');""" 2>>  $YTADSBLOCKER_LOG 
+				echo $DOMAIN >> my-adlist.txt
 			else
 				echo "[$(date "+%F %T")] The subdomain: $DOMAIN has not been inserted, does not looks like a subdomain!!!" >> $YTADSBLOCKER_LOG
 			fi
