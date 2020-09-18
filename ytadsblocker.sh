@@ -44,6 +44,7 @@ function Banner () {
 	echo -e "	  / __  / /   / / / / /   / ,<  / __/ / /_/ / "                 
 	echo -e "	 / /_/ / /___/ /_/ / /___/ /| |/ /___/ _, _/ "                  
 	echo -e "	/_____/_____/\____/\____/_/ |_/_____/_/ |_| v${YTADSBLOCKER_VERSION}${COLOR_CL} by @deividgdt"   
+	echo -e "                                                     modded by @AlexDCode"
 	echo ""
 	echo -e "${TAGINFO} Youtube Ads Blocker: INSTALLING..."; sleep 1
 	echo -e "${TAGINFO} If you move the script to a different place, please run it again with the option 'install'";
@@ -91,7 +92,7 @@ function Database () {
 		"insertDomain")
 			if [[ $DOMAIN == *.googlevideo.com ]]; then 
 				echo -e "${TAGINFO} Inserting subdomain: $DOMAIN";
-				sqlite3 "${GRAVITYDB}"  """INSERT INTO domainlist (type, domain, comment) VALUES (1, '${DOMAIN}', 'Blacklisted by ytadsblocker');""" 2>>  $YTADSBLOCKER_LOG 
+				sqlite3 "${GRAVITYDB}"  """INSERT INTO domainlist (type, domain, comment) VALUES (1, '${DOMAIN}', 'Blacklisted by ytadsblocker on $(date +"%D %H:%M")');""" 2>>  $YTADSBLOCKER_LOG 
 				echo $DOMAIN >> my-adlist.txt
 				echo "Commiting new URLs to GitHub"
 				git commit -a
