@@ -22,7 +22,7 @@ This script will block all the Youtube's advertisement in your network. It must 
   `# systemctl start ytadsblocker`
 - View the status of the script
 
-`# sudo service ytadsblocker status`
+  `# sudo service ytadsblocker status`
 - Stop ytadsblocker service
 
   `# sudo service ytadsblocker stop`
